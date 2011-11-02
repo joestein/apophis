@@ -1,0 +1,18 @@
+CREATE KEYSPACE FixtureTestApophis
+with placement_strategy = 'org.apache.cassandra.locator.SimpleStrategy'
+and strategy_options = [{replication_factor:1}];
+
+USE FixtureTestApophis;
+
+CREATE COLUMN FAMILY ByDay
+WITH default_validation_class=CounterColumnType
+AND key_validation_class=UTF8Type AND comparator=UTF8Type;
+
+CREATE COLUMN FAMILY ByHour
+WITH default_validation_class=CounterColumnType
+AND key_validation_class=UTF8Type AND comparator=UTF8Type;
+
+CREATE COLUMN FAMILY ByMinute
+WITH default_validation_class=CounterColumnType
+AND key_validation_class=UTF8Type AND comparator=UTF8Type;
+
