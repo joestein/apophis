@@ -70,6 +70,10 @@ class ApophisSampleLog (line: String) extends Apophis {
 		c(aggregateColumnNames("AnimalSound") + animal + "#" + sound)
 	}
 		
+	def ccSoundAnimal(c: (String) => Unit) = {
+		c(aggregateColumnNames("SoundAnimal") + sound + "#" + animal)
+	}
+			
 	def ccAnimalHome(c: (String) => Unit) = {
 		c(aggregateColumnNames("AnimalHome") + animal + "#" + home)
 	}
@@ -87,6 +91,7 @@ class ApophisSampleLog (line: String) extends Apophis {
 		//composite columns
 		aggregateColumnNames("Animal") = "animal="
 		aggregateColumnNames("AnimalSound") = "animal#sound="
+		aggregateColumnNames("SoundAnimal") = "sound#animal="		
 		aggregateColumnNames("AnimalHome") = "animal#home="
 		aggregateColumnNames("AnimalSoundHome") = "animal#sound#home="
 		aggregateColumnNames("total") = "total="
@@ -111,6 +116,7 @@ class ApophisSampleLog (line: String) extends Apophis {
 		
 		ccAnimal(r) 
 		ccAnimalSound(r)
+		ccSoundAnimal(r)		
 		ccAnimalSoundHome(r)
 		ccTotal(r)
 		
