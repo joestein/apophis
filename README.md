@@ -12,7 +12,7 @@ Getting Started
 
 1) Get Apophis
 
-  git clone git@github.com:joestein/apophis.git
+	git clone git@github.com:joestein/apophis.git
 	cd apophis
 
 2) Update the schema for Apophis's Specification Tests
