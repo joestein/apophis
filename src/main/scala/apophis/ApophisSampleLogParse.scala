@@ -101,18 +101,7 @@ class ApophisSampleLog (line: String) extends Apophis {
 		aggregateKeys(KEYSPACE \ "ByHour") = hour
 		aggregateKeys(KEYSPACE \ "ByMinute") = minute	
 		
-		var rows:Rows = new Rows()
-
-		//we wan to do this for all of the indexed key permutations
-		def r(columnName: String): Unit = {
-			aggregateKeys.foreach{tuple:(ColumnFamily, String) => {
-				val (columnFamily,row) = tuple
-				//rows add (columnFamily -> row has columnName inc) //increment the counter
-				if (row !=null && row.size > 0)
-				rows add (columnFamily -> row has columnName inc) //increment the counter
-				//mutator.insertCounter(row, columnFamily.name, HFactory.createCounterColumn(columnName, 1))
-				}}
-		}		
+		rows = new Rows()
 		
 		ccAnimal(r) 
 		ccAnimalSound(r)

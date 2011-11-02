@@ -14,4 +14,15 @@ trait Apophis {
 	
 	//holds the names of our aggregate columns
 	var aggregateColumnNames: HashMap[String, String] = HashMap.empty[String, String] 
+	
+	var rows:Rows = new Rows()
+	
+	//we wan to do this for all of the indexed key permutations
+	def r(columnName: String): Unit = {
+		aggregateKeys.foreach{tuple:(ColumnFamily, String) => {
+			val (columnFamily,row) = tuple
+			if (row !=null && row.size > 0)
+				rows add (columnFamily -> row has columnName inc) //increment the counter
+			}}
+	}	
 }
