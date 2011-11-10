@@ -30,6 +30,8 @@ How To Use
 
 The tests are also examples of how to use Apophis's.  Take a look at them.
 
+Apophis uses Skeletor the Scala wrapper of Hector https://github.com/joestein/skeletor when using Cassandra
+
 Thanx =) Joe Stein
 
 http://linkedin.com/in/charmalloc
